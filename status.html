@@ -1,0 +1,82 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block content%}
+<div class="card mb-3" style="max-width: 1240px;">
+  
+    <div class="col-md-8">
+      <div class="card-body">
+         <script>
+          $(document).ready(function () {
+          $('#mtable').DataTable();
+      });s
+      </script>
+      
+      <div class="card"style="padding:9px">
+                  <table id="mtable" class="table table-stripped-bordered" style="width:100%">
+                      <thead>
+                          <tr>
+                              <th>STUDENT NAME</th>
+                              <th>GENDER</th> 
+                              <th>FACULTY</th>
+                              <th>COURSE</th>
+                              <th>DEPARTMENT</th>
+                              <th>ACADEMIC YEAR</th>
+                              <th>RESEARCH TITLE</th>
+                              <th>PDF RESEARCH</th>
+                              <th>PASSPORT</th>
+                              <th>STATUS</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        {%for application in application%}
+                          <tr>
+                              <td>{{application.full_name}}</td>
+                            
+                              <td>{{application.gender}}</td>
+                              <td>{{application.faculty}}</td>
+                              <td>{{application.Course}}</td>
+                              <td>{{application.department}}</td>
+                              <td>{{application.academic_year}}</td>
+                              <td>{{application.project_title}}</td>
+                              <td>{{application.research_document}}</td>
+                              <td>{{application.image}}</td>
+                              <td><a href="{{application.file.url}}">Download</a> <i class="bx bx-download"></i></a></td>
+                              <td>{{application.status}}</td>
+                          </tr>
+                          {%endfor%}
+              
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>STUDENT NAME</th>
+                         
+                          <th>GENDER</th>
+                          <th>FACULTY</th>
+                          <th>COURSE</th>
+                          <th>DEPARTMENT</th>
+                          <th>ACADEMIC YEAR</th>
+                          <th>RESEARCH TITLE</th>
+                          <th>PDF RESEARCH</th>
+                          <th>PASSPORT</th>
+                          <th>STATUS</th>
+                      </tr>
+                      </tfoot>
+                  </table>
+              </div>
+
+                </div>
+              </div>
+      
+            </div>
+          </section><!-- End About Section -->     
+  
+      </div>
+    </div>
+  </div>
+</div>
+      
+       
+  {%endblock%}
+
+
